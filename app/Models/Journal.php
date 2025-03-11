@@ -22,7 +22,11 @@ class Journal extends Model
 
     public function getCoverUrlAttribute($value)
     {
-        return $value ? url('storage/' . $value) : null;
+        if (!$value) {
+            return null;
+        }
+
+        return env('APP_ENV') == 'local' ? url('storage/' . $value) :  url('public/storage/' . $value);
     }
 
     public function getCreatedAtAttribute($value)
