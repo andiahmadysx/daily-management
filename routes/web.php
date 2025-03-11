@@ -55,7 +55,7 @@ Route::middleware('auth')->group(function () {
     });
 });
 
-Route::get('artisan', function () {
+Route::get('storage-link', function () {
     Artisan::call('storage:link');
     return view('welcome');
 });
