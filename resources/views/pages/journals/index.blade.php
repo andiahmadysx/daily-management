@@ -258,13 +258,12 @@
             function updateJournal(journalId, formData) {
                 elements.saveJournal.disabled = true;
 
-
                 formData.append('_method', 'PUT');
 
                 $.ajax({
                     url: '{{ url("journals") }}/' + journalId,
-
                     data: formData,
+                    type: 'POST',
                     processData: false,
                     contentType: false,
                     headers: {
@@ -273,7 +272,7 @@
                     success: function (response) {
                         closeModal(elements.journalModal);
                         showNotification('Journal entry updated successfully!', 'success');
-
+                        loadJournals();
                     },
                     error: function (xhr) {
                         handleFormErrors(xhr);

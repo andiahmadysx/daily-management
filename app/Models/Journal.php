@@ -26,7 +26,7 @@ class Journal extends Model
             return null;
         }
 
-        return env('APP_ENV') == 'local' ? url('storage/' . $value) :  url('public/storage/' . $value);
+        return env('APP_ENV') == 'local' ? url('storage/' . $value) : url('public/storage/' . $value);
     }
 
     public function getCreatedAtAttribute($value)
