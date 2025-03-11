@@ -31,7 +31,6 @@
             padding: 25px;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            background-color: #fff;
         }
 
         /* Form group spacing */
@@ -49,12 +48,6 @@
         /* Input styling */
         .form-input {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
-            box-sizing: border-box;
-            transition: border-color 0.3s;
         }
 
         .form-input:focus {
@@ -74,17 +67,6 @@
             cursor: pointer;
             transition: background-color 0.3s;
             border: none;
-        }
-
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-            width: 100%;
-            font-weight: 500;
-        }
-
-        .btn-primary:hover {
-            opacity: 0.9;
         }
 
         /* Responsive adjustments for smaller screens */
