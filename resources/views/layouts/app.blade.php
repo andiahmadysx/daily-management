@@ -6,7 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Zen Flow - Daily Management System</title>
-    <link rel="stylesheet" href="{{asset('public/assets/css/styles.css')}}">
+    <link rel="stylesheet" href="{{env('APP_ENV') === 'local' ? asset('assets/css/styles.css') : asset('public/assets/css/styles.css')}}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     @stack('styles')
 </head>
