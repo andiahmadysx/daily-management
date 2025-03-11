@@ -81,7 +81,7 @@ class JournalController extends Controller
             $tagIds[] = $tag->id;
         }
 
-        $journal->tags()->syncWithoutDetaching($tagIds);
+        $journal->tags()->sync($tagIds);
 
         if ($request->hasFile('cover')) {
             $file = $request->file('cover');
