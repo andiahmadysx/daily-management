@@ -4,39 +4,137 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zen Flow - Daily Management System</title>
-    <style></style>
     <link rel="stylesheet" href="{{env('APP_ENV') === 'local' ? asset('assets/css/styles.css') : asset('public/assets/css/styles.css')}}">
 
-
     <style>
-        .container{
+        /* Base styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        /* Container styling with responsive width */
+        .container {
             display: flex;
             justify-content: center;
             align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Form styling */
+        form {
+            width: 100%;
+            max-width: 400px;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        /* Form group spacing */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        /* Label styling */
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        /* Input styling */
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        .form-input:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        /* Button styling */
+        .form-actions {
+            margin-top: 24px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            width: 100%;
+            font-weight: 500;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+
+            form {
+                padding: 20px;
+            }
+
+            .form-input {
+                padding: 10px;
+                font-size: 15px;
+            }
+
+            .btn {
+                padding: 10px 16px;
+                font-size: 15px;
+            }
+        }
+
+        /* Notification styling */
+        #notification {
+            width: calc(100% - 40px);
+            max-width: 400px;
+            box-sizing: border-box;
         }
     </style>
 </head>
 <body>
 
-
 <div class="container">
-    <form style="width: 400px" action="{{route('auth.login')}}" method="post">
+    <form action="{{route('auth.login')}}" method="post">
         @csrf
         <div class="form-group">
             <label class="form-label" for="username">Username</label>
-            <input type="text" class="form-input" id="username" name="username" placeholder="e.g john" required>
+            <input type="text" class="form-input" id="username" name="username" placeholder="Enter your username" required>
         </div>
 
         <div class="form-group">
             <label class="form-label" for="password">Password</label>
-            <input type="password" class="form-input" id="password" name="password" placeholder="e.g john" required>
+            <input type="password" class="form-input" id="password" name="password" placeholder="Enter your password" required>
         </div>
         <div class="form-actions">
             <button type="submit" class="btn btn-primary" id="save-journal">Login</button>
         </div>
     </form>
 </div>
-
 
 <!-- Confirmation Modal -->
 <div class="modal" id="confirm-modal">
@@ -67,7 +165,6 @@
         const notification = document.getElementById('notification');
         const notificationContent = document.getElementById('notification-content');
 
-
         function openModal(modal) {
             modal.style.display = 'flex';
             // Add a small delay before adding the class to ensure the transition works
@@ -96,76 +193,12 @@
             }, 3000);
         }
 
-
-        // Update recent tasks on dashboard
-        // function updateRecentTasks() {
-        //     const recentTasksContainer = document.getElementById('recent-tasks-container');
-        //     const tasks = Array.from(document.querySelectorAll('.task-item')).slice(0, 5);
-        //
-        //     recentTasksContainer.innerHTML = '';
-        //
-        //     if (tasks.length === 0) {
-        //         recentTasksContainer.innerHTML = '<div class="activity-item">No tasks yet</div>';
-        //         return;
-        //     }
-        //
-        //     tasks.forEach(task => {
-        //         const taskText = task.querySelector('.task-text').textContent;
-        //         const taskPriority = task.getAttribute('data-priority');
-        //         const isCompleted = task.classList.contains('completed');
-        //
-        //         const activityItem = document.createElement('div');
-        //         activityItem.className = 'activity-item';
-        //
-        //         activityItem.innerHTML = `
-        //         <div class="activity-dot activity-task" style="background-color: ${getPriorityColor(taskPriority)}"></div>
-        //         <div class="activity-content">
-        //             <div class="activity-title">${taskText}</div>
-        //             <div class="activity-meta">${isCompleted ? 'Completed' : 'Active'} • ${taskPriority} priority</div>
-        //         </div>
-        //     `;
-        //
-        //         recentTasksContainer.appendChild(activityItem);
-        //     });
-        // }
-
-        // Update recent journals on dashboard
-        // function updateRecentJournals() {
-        //     const recentJournalsContainer = document.getElementById('recent-journals-container');
-        //     const journals = Array.from(document.querySelectorAll('.journal-card')).slice(0, 5);
-        //
-        //     recentJournalsContainer.innerHTML = '';
-        //
-        //     if (journals.length === 0) {
-        //         recentJournalsContainer.innerHTML = '<div class="activity-item">No journal entries yet</div>';
-        //         return;
-        //     }
-        //
-        //     journals.forEach(journal => {
-        //         const journalTitle = journal.querySelector('.journal-title').textContent;
-        //         const journalDate = journal.querySelector('.journal-date').textContent;
-        //
-        //         const activityItem = document.createElement('div');
-        //         activityItem.className = 'activity-item';
-        //
-        //         activityItem.innerHTML = `
-        //         <div class="activity-dot activity-journal"></div>
-        //         <div class="activity-content">
-        //             <div class="activity-title">${journalTitle}</div>
-        //             <div class="activity-meta">${journalDate}</div>
-        //         </div>
-        //     `;
-        //
-        //         recentJournalsContainer.appendChild(activityItem);
-        //     });
-        // }
-
         @if(session('error'))
-            showNotification("{{session('error')}}", 'danger');
+        showNotification("{{session('error')}}", 'danger');
         @endif
 
         @if(session('success'))
-            showNotification("{{session('success')}}", 'success');
+        showNotification("{{session('success')}}", 'success');
         @endif
 
         // Helper function to format a date
