@@ -53,3 +53,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/dashboard/weekly-productivity', 'weeklyProductivity')->name('dashboard.weeklyProductivity');
     });
 });
+
+Route::get('/artisan', function () {
+    \Illuminate\Support\Facades\Artisan::call('storage:link');
+});
