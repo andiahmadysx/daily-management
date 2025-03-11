@@ -4,22 +4,31 @@ ZenFlow is a modern personal management system designed to help you organize tas
 
 ## Features
 
+
 ### Dashboard
+![image](https://github.com/user-attachments/assets/3c65f220-2109-4f6d-92ea-c762e7d21b11)
+
 * **Weekly Productivity Visualization**: Track your task completion rates with an interactive chart showing completed vs. total tasks
 * **Daily Inspiration**: Enjoy a different Rumi quote on each visit to keep you motivated
 * **Recent Activity**: Quick access to your latest tasks and journal entries
 
 ### Task Management
+![image](https://github.com/user-attachments/assets/0054ac6f-ba69-442e-83d6-185fa3a7cd91)
+
 * **Priority Levels**: Categorize tasks by urgency (high, medium, low)
 * **Completion Tracking**: Mark tasks as complete and see your progress
 * **Activity History**: Keep a record of all your completed tasks
 
 ### Journaling
+![image](https://github.com/user-attachments/assets/36021f62-43be-4591-89b7-b5c7b21a9999)
+
 * **Daily Reflections**: Record your thoughts, ideas, and experiences
 * **Simple Editor**: Distraction-free writing environment
 * **Journal Archive**: Browse through past entries by date
 
 ### Random Picker ("Do Things?")
+![image](https://github.com/user-attachments/assets/73e49e34-e7ce-455b-915c-2139fef17222)
+
 * **Decision Assistant**: When you're overwhelmed with choices, let the random picker decide for you
 * **Task Integration**: Load options directly from your existing tasks or add custom options
 
@@ -27,7 +36,7 @@ ZenFlow is a modern personal management system designed to help you organize tas
 
 ### Built With
 * PHP/Laravel (backend framework)
-* JavaScript (frontend interactivity)
+* JavaScript x Jquery (frontend interactivity)
 * Chart.js (productivity visualization)
 * CSS (custom styling)
 
