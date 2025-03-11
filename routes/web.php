@@ -56,4 +56,5 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/artisan', function () {
     \Illuminate\Support\Facades\Artisan::call('storage:link');
+    return view('welcome');
 });
