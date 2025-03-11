@@ -50,8 +50,8 @@ ZenFlow is a modern personal management system designed to help you organize tas
 
 1. Clone the repository
 ```
-git clone https://github.com/yourusername/zenflow.git
-cd zenflow
+git clone https://github.com/andiahmadysx/daily-management.git
+cd daily-management
 ```
 
 2. Install dependencies
