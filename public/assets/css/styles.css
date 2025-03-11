@@ -796,6 +796,7 @@ input[type='file']::file-selector-button {
 
     .recent-activity {
         flex-direction: column;
+        gap: 0;
     }
 
     .sidebar {
@@ -808,6 +809,10 @@ input[type='file']::file-selector-button {
 
     .section-title {
         display: none;
+    }
+
+    .task-item {
+        align-items: center;
     }
 }
 
